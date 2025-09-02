@@ -16,25 +16,25 @@ const buttonEnable = () => {//will enable all cell buttons
     cell.innerText = '';
     })};
 
-const showDraw = () => {
+const showDraw = () => {//function to show a draw
   msg.innerText = "It's a Draw!";
   msg_container.classList.remove("hide");
 };  
 
-const showwinner= (winner) => {
+const showwinner= (winner) => {//function to show a winner
     msg.innerText = `${winner} won!`;
     msg_container.classList.remove("hide");
     buttonDissable();
 }
 
-const reset = () => {
+const reset = () => {//resets the game
     chanceX = true;
     buttonEnable();
     msg_container.classList.add('hide');
     
 }
 
-const win = () => {
+const win = () => {//main
     for (let pattern of arr){
         let one = cells[pattern[0]].innerText;
         let two = cells[pattern[1]].innerText;

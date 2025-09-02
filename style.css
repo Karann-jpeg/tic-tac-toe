@@ -1,0 +1,142 @@
+:root {
+    --bg-color: #FAF3DD;        /* Creamy beige */
+    --container-color: #C8D5B9; /* Soft sage */
+    --bg-color: #0F0E17;        /* Jet black with a hint of purple */
+    --container-color: #1A1A2E; /* Dark navy board */
+    --cell-bg-color: #16213E;   /* Deep indigo cells */
+    
+    --x-color: #E94560;         /* Hot neon red */
+    --o-color: #00F5D4;         /* Neon cyan */
+    
+    --text-color: #FFFFFF;      /* White text */
+    --border-color: #FF00E4;    /* Neon magenta border */
+    --winner-glow: #FFD60A;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    background-color: var(--container-color);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.cell {
+    width: 100%;
+    color:var(--x-color);
+    aspect-ratio: 1 / 1; /* Makes cells square */
+    background-color:var(--cell-bg-color);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 3px solid var(--border-color);
+}
+
+.cell:hover {
+    background-color: #62a0eb;
+}
+
+.cell.x {
+    color: var(--x-color);
+}
+
+.cell.o {
+    color: var(--o-color);
+}
+
+.game-status {
+    font-size: 1.5rem;
+    min-height: 1.5em; /* Prevents layout shift */
+    margin-bottom: 20px;
+}
+
+.restart-button {
+    background-color: var(--x-color);
+    color: var(--text-color);
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.restart-button:hover {
+    background-color: #c43751;
+    transform: translateY(-2px);
+}
+.New{
+    background-color: var(--x-color);
+    color: var(--text-color);
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 10px;
+
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.hide{
+    display: none;
+}
+.msg-container{
+     position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(22, 33, 62, 0.9); 
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    z-index: 10;
+    font-size: 3rem;
+}
+.msg{
+    color: var(--winner-glow);
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+.New:hover {
+    background-color: #c43751;
+    transform: translateY(-2px);}

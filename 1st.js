@@ -34,23 +34,26 @@ const reset = () => {//resets the game
     
 }
 
-const win = () => {//main
-    for (let pattern of arr){
+const win = () => {
+    for (let pattern of arr) {
         let one = cells[pattern[0]].innerText;
         let two = cells[pattern[1]].innerText;
-        let three = cells[pattern[2]].innerText
-        if (one != "" && two !="" && three !=""){
-            if (one == two && two == three){
-                showwinner(one);
-            }
-        }
-        if ([...cells].every(cell => cell.innerText !== "")) {
-            showDraw();
+        let three = cells[pattern[2]].innerText;
+
+        if (one !== "" && one === two && two === three) {
+            showwinner(one);
             return true;
         }
-        return false;
     }
-}
+
+    // if all cells filled and no winner it willbe a draw
+    if ([...cells].every(cell => cell.innerText !== "")) {
+        showDraw();
+        return true;
+    }
+    return false;
+};
+
 
 cells.forEach((cell)=>{
     cell.addEventListener("click" , ()=>{
